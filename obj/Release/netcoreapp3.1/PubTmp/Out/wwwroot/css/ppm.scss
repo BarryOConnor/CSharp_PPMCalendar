@@ -1,0 +1,471 @@
+/* ----------------------------------------
+               Fonts
+---------------------------------------- */
+@font-face { 
+  font-family: 'Droid Sans';
+  src: url('../webfonts/DroidSans-webfont.eot');
+  src: url('../webfonts/DroidSans-webfont.eot?#iefix') format('embedded-opentype'),
+       url('../webfonts/DroidSans-webfont.woff') format('woff'),
+       url('../webfonts/DroidSans-webfont.ttf') format('truetype'),
+       url('../webfonts/DroidSans-webfont.svg#droid_sansregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face { 
+  font-family: 'Ubuntu Condensed'; 
+  src: url("../webfonts/UbuntuCondensed-Regular.eot"); 
+  src: url("../webfonts/UbuntuCondensed-Regular.eot?#iefix") format("embedded-opentype"), 
+       url("../webfonts/UbuntuCondensed-Regular.woff") format("woff"), 
+       url("../webfonts/UbuntuCondensed-Regular.ttf") format("truetype"), 
+       url("../webfonts/UbuntuCondensed-Regular.svg#UbuntuCondensed-Regular") format("svg"); 
+  font-weight: normal; 
+  font-style: normal; }
+
+
+/* ----------------------------------------
+               Variables
+---------------------------------------- */
+$droid: "Droid Sans","Helvetica Neue", Helvetica, Arial, sans-serif;
+$ubuntu: "Ubuntu Condensed", sans-serif;
+$window-background-light: #f3f2f1;
+$window-background-dark: #212121;
+$border-light: #DDD;
+$border-dark: #000;
+$header-light: #BBB;
+$header-dark: #111;
+$header-light-text: #000;
+$header-dark-text: #e7e7e7;
+
+
+$bg-blue: #0078D4; /*blue*/
+$bg-teal: #038387; /*teal*/
+$bg-green: #498205; /*green*/
+$bg-green: #498205; /*green*/
+$bg-dblue: #003966; /*dblue*/
+$bg-purple: #744DA9; /*purple*/
+$bg-fuchsia: #E3008C; /*fuchsia*/
+$bg-orange: #DA3B01; /*orange*/
+$bg-mustard: #807609; /*mustard*/
+$bg-grey: #69797E; /*grey*/
+$bg-red: #C50F1F; /*red*/
+
+/* ----------------------------------------
+               Basic Markup
+---------------------------------------- */
+
+
+
+* { box-sizing: border-box; position: relative; }  /*everything uses border-box */
+
+html { font-size: 100%; padding: 0rem; margin: 0rem; height: 100%; width: 100%; }
+
+html.text-100 { font-size: 1rem; }
+html.text-150 { font-size: 1.5rem; }
+html.text-200 { font-size: 2rem; }
+
+body { font-family: $droid; font-weight: 400; line-height: 1.6; font-weight: 400; padding: 0rem; margin: 0rem; height: 100%; width: 100%; background-color:$window-background-light;}
+
+img { max-width: 100%; height: auto; }
+
+
+/* ----------------------------------------
+               Typography Markup
+---------------------------------------- */
+
+h1, h2, h3, h4, h5, h6, input, select, textarea { font-family: $ubuntu; font-weight: 400; margin: 0.625rem 0; text-align: center; }
+h1 { font-size: 2.25rem; line-height: 1.25;}
+h2 { font-size: 1.875rem; line-height: 1.3;}
+h3 { font-size: 1.5rem; line-height: 1.35;}
+h4 { font-size: 1.125rem; line-height: 1.5;}
+body { font-size: 0.9375rem !important;}
+body.dark { color:$header-dark-text; background-color: $window-background-dark; }
+body.light { color:$header-light-text; background-color: $window-background-light; }
+input, select, textarea { font-size: 1rem; text-align: left; }
+
+@media (min-width: 50rem) and (max-width: 75rem) { /* HTML setup*/
+  h1 { font-size: 2.25rem; line-height: 1.25; text-align: left; }
+  h2 { font-size: 1.875rem; line-height: 1.3; text-align: left; }
+  h3 { font-size: 1.5rem; line-height: 1.35; text-align: left; }
+  h4 { font-size: 1.125rem; line-height: 1.5; text-align: left; }
+  body, input, select, textarea{ font-size: 0.9375rem !important; }
+}
+@media (min-width: 75.06rem) { 
+  h1 { font-size: 2.5rem; line-height: 1.2; }
+  h2 { font-size: 2.25rem; line-height: 1.25; text-align: left; }
+  h3 { font-size: 1.875rem; line-height: 1.3; text-align: left; }
+  h4 { font-size: 1.5rem; line-height: 1.35; text-align: left; }
+  body, input, select, textarea{ font-size: 1rem !important; text-align: left; }
+}
+
+a.skip-main { left:-999px; position:absolute; top:auto; width:1px; height:1px; overflow:hidden; z-index:-999; }
+a { border: 0.125rem solid transparent; color: #344055; transition: color 0.3s ease-in-out; }
+.dark a { color:#fff; }
+.light a{ color:#222; }
+a:hover { color: #f46036 !important; }
+/* remove default outline and shows a red box around focused elements. Needed for keyboard navigation*/
+body.light.using-keyboard a:focus, body.light.using-keyboard input:focus, body.light.using-keyboard select:focus, body.light.using-keyboard textarea:focus, body.light.using-keyboard button:focus { border: 0.125rem dotted #ff0000 !important; outline: 0; color: #222; }
+body.dark.using-keyboard a:focus, body.dark.using-keyboard input:focus, body.dark.using-keyboard select:focus, body.dark.using-keyboard textarea:focus, body.dark.using-keyboard button:focus { border: 0.125rem dotted #ff0000 !important; outline: 0; color: header-dark-text; }
+body.light.using-keyboard a:focus { color: #f46036; }
+body.dark.using-keyboard a:focus { color: #f46036; }
+
+
+/* responsive code for fit-to-width images */
+hr { border: 0.0625rem solid $bg-blue;width: 90%;}
+
+main { display: grid; grid-template-columns: 300px auto; grid-template-rows: 100%; width: 100%; height: 100%; }
+main.login { display: block; padding: 30px 10px 10px 10px; max-width: 320px; max-height: 300px; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); border-radius:5px; }
+.light main.login { background-color: darken($window-background-light, 15%); }
+.dark main.login { background-color: lighten($window-background-dark, 15%); }
+
+.hidden { display:none !important; }
+
+@media (max-width: 1000px) { 
+  main { display: block; }
+  #sidebar { display:none; }
+}
+
+@media (min-width: 551px) { 
+  .mobile-only { display:none !important; }
+}
+@media (max-width: 550px) { 
+  .desktop-only { display:none !important; }
+  }
+
+
+
+
+/* --------------------
+ SIDEBAR CSS
+ -------------------- */
+
+  div#sidebar-year { font-size: 20px; text-align: center; margin: 5px 0px; max-height:30px; }
+  span.fas, span.far { margin:0px 10px; }
+
+  #calendar-small { display: grid; grid-template-columns: 40px 40px 40px 40px 40px 40px 40px; grid-template-rows: 40px 40px 40px 40px 40px 40px; justify-content: center; align-content: center; }
+  #calendar-small > div.day {display: grid; justify-items: center; align-items: center;}
+
+  #calendar-small > div a.day-border {display: grid; height: 100%; width: 100%; align-content: center; justify-content: center; border: none; text-decoration:none; border-top: 4px solid transparent; border-bottom: 4px solid transparent;}
+  #calendar-small > div a.day-border.active { background-color:#0000ff55;}
+  #calendar-small > div a.day-border:hover { background-color:#222; }
+  #calendar-small > div a.day-border.has-content { border-bottom: 1px solid $bg-blue; } 
+
+  #calendar-small > div span.date-header { display: grid; align-items: center; justify-items: center; height: 40px; }
+  #calendar-small > div span.date { display: grid; align-items: center; justify-items: center; height: 30px;width: 30px; border-radius: 50%; }
+  #calendar-small > div span.date.today { background-color: #0000ff55; border: 1px solid #00f; font-weight: bold; }
+
+
+  /* --- themes --- */
+  .light #calendar-small > div.day { border-left: 1px solid $border-light; border-bottom:1px solid $border-light; }
+  .light #calendar-small > div:nth-child(7n) { border-right: 1px solid $border-light; }
+  .light #calendar-small > div span.date-header { background-color: $header-light; color:$header-light-text; }
+
+  .dark #calendar-small > div:nth-child(7n) { border-right: 1px solid $border-dark; }
+  .dark #calendar-small > div.day { border-left: 1px solid $border-dark; border-bottom:1px solid $border-dark; }
+  .dark #calendar-small > div span.date-header { background-color: $header-dark; color:$header-dark-text; }
+
+
+
+/* --------------------
+ CALENDAR CSS
+ -------------------- */
+
+ /* --- Header --- */
+
+  #calendar { padding: 10px; padding-top: 0px; width: 100%; height: 100%; }
+  #calendar-header { display: grid; grid-template-columns: 1fr 1fr; width: 100%; height:40px; align-content:center;}
+  #calendar-header .left { text-align:left; margin-left: 10px; }
+  #calendar-header .right { text-align:right; }
+
+  a.button-previous { position: absolute; left: 0; top:0px; z-index: 2; font-size: 20px; line-height: 35px;}
+  a.button-next { position: absolute; right: 0; top:0px; z-index: 2; font-size: 20px; line-height: 35px;}
+
+   @media (max-width: 1000px) { 
+    #calendar-header .left { text-align:left; margin-left:10px; }
+    .weekly #calendar-header .left, .daily #calendar-header .left { margin-left:10px; }
+  }
+
+@media (max-width: 700px) { 
+  #calendar-header { display: block; }
+  #calendar-header .left { display:inline-block; float:left; }
+  #calendar-header .right { display:inline-block; float:right; }
+}
+
+@media (max-width: 550px) { 
+  #calendar { display: block; }
+  #calendar-header { display: block; }
+  #calendar-header .left { display:block; }
+  #calendar-header .right { display:block; }
+}
+
+@media (max-width: 400px) { 
+  #calendar-header .left { display:none; }
+  #calendar-header .right { display:block; float:none;}
+}
+
+  /* --- Body --- */
+
+  #calendar-body > a.day { border: none; padding: 0px; text-decoration:none;}
+
+  .monthly #calendar-body { display: grid; grid-template-columns:repeat(7, 1fr); grid-template-rows: 40px 1fr 1fr 1fr 1fr 1fr; width: 100%; height: 100%; }
+  @media (max-width: 1000px) { 
+    .monthly #calendar-body { display: grid; grid-template-columns: repeat(7, 1fr); grid-template-rows: 40px 40px 1fr 1fr 1fr 1fr 1fr; width: 100%; height: 100%; }
+  }
+ 
+  .weekly #calendar-body { display: grid; grid-template-columns: repeat(7, 1fr); grid-template-rows: 40px 1fr; width: 100%; height: 100%; }
+  @media (max-width: 1000px) { 
+    .weekly #calendar-body { display: grid; grid-template-columns: repeat(7, 1fr); grid-template-rows: 40px 40px 1fr; width: 100%; height: 100%; }
+  }
+
+  .daily #calendar-body { display: grid; grid-template-columns: 1fr; grid-template-rows: 40px 1fr; width: 100%; height: 100%; }
+
+  .weekly #calendar-body > a.day, .daily #calendar-body > a.day { display: block; }
+
+
+  #calendar-body > div > span.date-header { display: grid; align-items: center; justify-items: center; height: 40px; line-height:20px; }
+  #calendar-body > a.day > span.date { position: absolute; top: 0px; display: grid; align-items: center; justify-items: center; width:20px; height:20px; line-height: 20px; }
+
+
+  /* --- themes --- */
+  .light #calendar-body > a.day.last { border-right: 1px solid $border-light; }
+  .light #calendar-body > a.day { border-left: 1px solid $border-light; border-bottom:1px solid $border-light; }
+  .light #calendar-body > div > span.date-header { background-color: $header-light; color: $header-light-text; }
+
+  .dark #calendar-body > a.day.last { border-right: 1px solid $border-dark; }
+
+  .dark #calendar-body > a.day { border-left: 1px solid $border-dark; border-bottom:1px solid $border-dark; }
+  .dark #calendar-body > div > span.date-header { background-color: $header-dark; color: $header-dark-text }
+
+  a.day:hover { color: #fff !important; }
+
+  .small-header.sub-1000 {grid-column-start: 1; grid-column-end: 8; align-items: center; justify-items: center; height: 40px; line-height: 20px; display:none;}
+  .light .small-header.sub-1000 { background-color: $header-light; color: $header-light-text; }
+  .dark .small-header.sub-1000 { background-color: $header-dark; color: $header-dark-text; }
+
+  @media (max-width: 1000px) {
+    .small-header.sub-1000 { display:grid; }
+  }
+
+
+  button.event { display:block; border: 1px solid transparent; background-color: transparent; margin:1px; width: calc(100% - 2px); cursor: pointer; }
+  button.event span { display:block; text-align:center; }
+
+  button.event.event-type-1 { background-color:$bg-blue; border: 1px solid darken($bg-blue, 20%); color:#fff; }
+  button.event.event-type-2 { background-color:$bg-teal; border: 1px solid darken($bg-teal, 20%); color:#fff; }
+  button.event.event-type-3 { background-color:$bg-green; border: 1px solid darken($bg-green, 20%); color:#fff; }
+  button.event.event-type-4 { background-color:$bg-dblue; border: 1px solid darken($bg-dblue, 20%); color:#fff; }
+  button.event.event-type-5 { background-color:$bg-purple; border: 1px solid darken($bg-purple, 20%); color:#fff; }
+  button.event.event-type-6 { background-color:$bg-fuchsia; border: 1px solid darken($bg-fuchsia, 20%); color:#fff; }
+  button.event.event-type-7 { background-color:$bg-orange; border: 1px solid darken($bg-orange, 20%); color:#fff; }
+  button.event.event-type-8 { background-color:$bg-mustard; border: 1px solid darken($bg-red, 20%); color:#fff; }
+  button.event.event-type-9 { background-color:$bg-grey; border: 1px solid darken($bg-grey, 20%); color:#fff; }
+  button.event.event-type-10 { background-color:$bg-red; border: 1px solid darken($bg-grey, 20%); color:#fff; }
+
+
+  @media (max-width: 550px) { 
+  button.event {padding:2px; }
+
+}
+ 
+
+/* --------------------
+ Dropdown CSS
+ -------------------- */
+  /* Style The Dropdown Button */
+  .dropbtn { background-color: transparent; font-size: 16px; border: none; cursor: pointer; }
+  .light .dropbtn { color:$header-light-text; }
+  .dark .dropbtn { color:$header-dark-text; }
+
+  /* The container <div> - needed to position the dropdown content */
+  .dropdown { position: relative; display: inline-block; }
+
+  @media (max-width: 550px) { 
+  button.dropbtn { padding: 0px; }
+}
+
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-calendar, .dropdown-user, .dropdown-settings { display: none; position: absolute; min-width: 160px; width:auto; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); z-index: 1000; }
+  .light .dropdown-calendar, .light .dropdown-user, .light .dropdown-settings { background-color:$header-light; }
+  .dark .dropdown-calendar, .dark .dropdown-user, .dark .dropdown-settings { background-color:$header-dark; }
+
+
+  .dropdown-settings {right:0;}
+  /* Links inside the dropdown */
+  .dropdown-calendar a, .dropdown-user a, .dropdown-settings a { padding: 12px 16px; text-decoration: none; display: block; }
+  .light .dropdown a { color:$header-light-text; }
+  .dark .dropdown a { color:$header-dark-text; }
+
+  /* Change color of dropdown links on hover */
+  .dropdown-calendar a:hover, .dropdown-user a:hover, .dropdown-settings a:hover { background-color: #f1f1f1; }
+
+  /* Show the dropdown menu on hover */
+  .dropdown:hover .dropdown-calendar, .dropdown:hover .dropdown-user, .dropdown:hover .dropdown-settings { display: block; }
+
+/* --------------------
+ Modal CSS
+ -------------------- */
+  #js-modal-page { width:100%; height:100%; }
+  .modal-container{ width:100%; margin:0px; }
+
+  .modal {
+    display: none;
+  }
+
+  @media (max-width: 800px) {
+    .modal-container{ min-width:100%; margin:0px; }
+  }
+
+.modal.is-open { display:grid; align-items: center; justify-items: center; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgb(0,0,0); background-color: rgba(0,0,0,0.8); }
+/* The Close Button */
+
+.modal-close { position: absolute; font-size: 32px; cursor: pointer; width: 32px; height: 32px; line-height: 32px !important; text-align: left; margin-top: 0px; z-index: 999; top: 6px; right: 6px; background-color: transparent; border: none; padding: 0; }
+@media (max-width: 800px) {
+    .modal-size{width:98%; margin:0px; }
+  }
+
+  @media (min-width: 800px) {
+    .modal-size{width:800px; margin:0px; }
+  }
+header { background-color: #555; border-radius: 5px 5px 0px 0px; padding: 0px 10px; }
+
+dialog { display: block; border: 0; }
+/* removes scroll when modal is opened */
+.no-scroll { overflow: hidden; }
+/* overlay covers everything */
+.modal-overlay { position: fixed; top: 0; bottom: 0; right: 0; left: 0; z-index: 1000; }
+.modal p { padding:10px; max-width:780px; }
+/* modal */
+.light .modal-close { color: $header-light-text; }
+.dark .modal-close { color: $header-dark-text; }
+.light .modal-container { background-color:$window-background-light; color: $header-light-text; border-radius: 5px; -webkit-animation: pop ease .5s 1 normal ; animation: pop ease .5s 1 normal ;}
+.dark .modal-container { background-color:$window-background-dark; color: $header-dark-text; border-radius: 5px; -webkit-animation: pop ease .5s 1 normal ; animation: pop ease .5s 1 normal ;}
+
+
+
+@media (min-width: 800px) {
+  @-webkit-keyframes pop {
+    0% { opacity: 0; -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"; -webkit-transform: scale(0); transform: scale(0); }
+    100% { opacity: 1; -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)"; -webkit-transform: scale(1); transform: scale(1); max-height: 100%; width: 800px; }
+  }
+  @keyframes pop {
+    0% { opacity: 0; -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"; -webkit-transform: scale(0); transform: scale(0); }
+    100% { opacity: 1; -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)"; -webkit-transform: scale(1); transform: scale(1); max-height: 100%; width: 800px; }
+  }
+}
+
+@media (max-width: 800px) {
+  @-webkit-keyframes pop {
+    0% { opacity: 0; -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"; -webkit-transform: scale(0); transform: scale(0); }
+    100% { opacity: 1; -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)"; -webkit-transform: scale(1); transform: scale(1); max-height: 100%; width: 100%; }
+  }
+  @keyframes pop {
+    0% { opacity: 0; -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"; -webkit-transform: scale(0); transform: scale(0); }
+    100% { opacity: 1; -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)"; -webkit-transform: scale(1); transform: scale(1); max-height: 100%; width: 100%; }
+  }
+}
+
+/* --------------------
+ SLide toggle  CSS
+ -------------------- */
+.switch { position: relative; display: inline-block; width: 40px; height: 24px; }
+.switch input { opacity: 0; width: 0; height: 0; }
+.slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; -webkit-transition: .4s; transition: .4s; }
+.slider:before { position: absolute; content: ""; height: 16px; width: 16px; left: 4px; bottom: 4px; background-color: white; -webkit-transition: .4s; transition: .4s; }
+input:checked + .slider { background-color: #2196F3; }
+input:focus + .slider { box-shadow: 0 0 1px #2196F3; }
+input:checked + .slider:before { -webkit-transform: translateX(16px); -ms-transform: translateX(16px); transform: translateX(16px); }
+.slider.round { border-radius: 34px; }
+.slider.round:before { border-radius: 50%; }
+
+/* --------------------
+Cookie Bar  CSS
+ -------------------- */
+div#cookiebar { position: fixed; z-index: 1000; width: 100%; text-align: center; background-color: rgba(0,0,0,0.7); color: #fff; padding: 1rem; }
+
+/* --------------------
+ Toast bar  CSS
+ -------------------- */
+
+#toast { visibility: hidden; min-width: 250px; margin-left: -125px; text-align: center; border-radius: 2px; padding: 16px; position: fixed; z-index: 1; left: 50%; bottom: 30px; }
+.light #toast { background-color: $header-light; color: $header-light-text; }
+.dark #toast { background-color: $header-dark; color: $header-dark-text; }
+
+
+#toast.popup { visibility: visible; -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s; animation: fadein 0.5s, fadeout 0.5s 2.5s; }
+
+/* Animations to fade the toast in and out */
+@-webkit-keyframes fadein {
+  from {bottom: 0; opacity: 0;}
+  to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+  from {bottom: 0; opacity: 0;}
+  to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+  from {bottom: 30px; opacity: 1;}
+  to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+  from {bottom: 30px; opacity: 1;}
+  to {bottom: 0; opacity: 0;}
+}
+
+
+/* --------------------
+ Forms CSS
+ -------------------- */
+ form {padding:10px; }
+.form-row { width: 100%; }
+.form-row label, .form-row input { display:inline-block; vertical-align:baseline; }
+.form-row label { width:150px; padding-right:10px; text-align: right; }
+#login-form .form-row label { width:100px; padding-right:10px; text-align: right; }
+.form-row image { text-align:center; }
+.form-row.center { text-align:center; }
+.form-row.logo { background-size: contain; min-height: 68px; background-position: top center; background-repeat: no-repeat; margin-bottom:20px; }
+
+.light .form-row.logo { background-image: url(../images/logologinlight.gif); }
+.dark .form-row.logo { background-image: url(../images/logologindark.gif); }
+
+button { padding: 5px 15px; }
+
+.light input, .light select { background-color:$window-background-light; color: $header-light-text; border: 1px solid #777;}
+.dark input, .dark select { background-color:$window-background-dark; color: $header-dark-text; border: 1px solid #777; }
+
+.modal-container input[type="text"], .modal-container input[type="email"] { width: 70%; }
+
+@media (max-width: 800px) {
+  .form-row label { width: 100%; display:block; text-align: left;}
+  .modal-container input[type="text"], .modal-container input[type="email"] { width: 100%; }
+}
+
+.error { border: 1px solid #f00; background: #f008; margin: 10px 0px; }
+.error p{ margin: 5px; }
+.error p i{ margin: 5px; }
+
+form span {
+    display: none;
+    position: relative;
+    padding-left: 1.2rem;
+    margin-left: 155px;
+}
+form .invalid ~ span {
+    display: block;
+    position: relative;
+    padding-left: 1.2rem;
+    margin-left: 155px;
+}
+
+form .invalid ~ span::before, form span.invalid::before {
+    content: "\f057";
+    color: #FF0000;
+    font-weight: bold;
+    font-family: "Font Awesome 5 Free";
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    margin-left: -1.2rem;
+    padding-right:6px;
+}
